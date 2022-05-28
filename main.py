@@ -155,16 +155,52 @@ async def translate_support(ctx):
     await ctx.send(f"Talk with my creator <@757738778633961592>")
 
 
+@client.command(aliases=['ts-help-google'])
+async def translate_google_help(ctx):
+    help_msg_google = discord.Embed(title=f"Google help", color=638712)
+    help_msg_google.add_field(name=f"Google usage examples", value=f"`!ts-google ja Hello\n!ts ja Hello`", inline=False)
+    help_msg_google.add_field(name=f"List of supported languages by Google", value=langs.list_of_supported_langs_google, inline=False)
+    await ctx.send(embed=help_msg_google)
+
+
+@client.command(aliases=['ts-help-bing'])
+async def translate_bing_help(ctx):
+    help_msg_bing = discord.Embed(title=f"Bing help", color=638712)
+    help_msg_bing.add_field(name=f"Bing usage example", value=f"`!ts-bing ja Hello`", inline=False)
+    help_msg_bing.add_field(name=f"List of supported languages by Bing", value=langs.list_of_supported_langs_bing, inline=False)
+    await ctx.send(embed=help_msg_bing)
+
+
+@client.command(aliases=['ts-help-itranslate'])
+async def translate_itranslate_help(ctx):
+    help_msg_itranslate = discord.Embed(title=f"Itranslate help", color=638712)
+    help_msg_itranslate.add_field(name=f"Itranslate usage example", value=f"`!ts-itranslate ja Hello`", inline=False)
+    help_msg_itranslate.add_field(name=f"List of supported languages by Itranslate", value=langs.list_of_supported_langs_itranslate, inline=False)
+    await ctx.send(embed=help_msg_itranslate)
+
+
+@client.command(aliases=['ts-help-reverso'])
+async def translate_reverso_help(ctx):
+    help_msg_reverso = discord.Embed(title=f"Reverso help", color=638712)
+    help_msg_reverso.add_field(name=f"Reverso usage example", value=f"`!ts-reverso en ja Hello`", inline=False)
+    help_msg_reverso.add_field(name=f"List of supported languages by Reverso", value=langs.list_of_supported_langs_reverso, inline=False)
+    help_msg_reverso.add_field(name=f"Usage of Reverso", value=f"When you are using Reverso you need to specify the language are coming from. For example `!ts-reverso en pt Got it!`", inline=False)
+    await ctx.send(embed=help_msg_reverso)
+
+
+@client.command(aliases=['ts-help-deepl'])
+async def translate_deepl_help(ctx):
+    help_msg_deepl = discord.Embed(title=f"DeepL help", color=638712)
+    help_msg_deepl.add_field(name=f"DeepL usage example", value=f"`!ts-deepl ja Hello`", inline=False)
+    help_msg_deepl.add_field(name=f"List of supported languages by DeepL", value=langs.list_of_supported_langs_deepl, inline=False)
+    await ctx.send(embed=help_msg_deepl)
+
+
 @client.command(aliases=['ts-help'])
 async def translate_help(ctx):
-    help_msg = discord.Embed(title=f"Translate bot help", color=638712)
+    help_msg = discord.Embed(title=f"Chat translator help", color=638712)
     help_msg.add_field(name=f"Bot usage examples", value=f"`!ts ja Hello\n!ts-deepl en Ciao\n!ts-bing pt Bonjour\n!ts-itranslate fr-CA Hi\n!ts-reverso pt pl Olá`", inline=False)
-    help_msg.add_field(name=f"List of supported languages by Google", value=langs.list_of_supported_langs_google, inline=False)
-    help_msg.add_field(name=f"List of supported languages by Deepl", value=langs.list_of_supported_langs_deepl, inline=False)
-    help_msg.add_field(name=f"List of supported languages by Bing", value=langs.list_of_supported_langs_bing, inline=False)
-    help_msg.add_field(name=f"List of supported languages by Itranslate", value=langs.list_of_supported_langs_itranslate, inline=False)
-    help_msg.add_field(name=f"List of supported languages by Reverso", value=langs.list_of_supported_langs_reverso, inline=False)
-    help_msg.add_field(name=f"Usage of Reverso", value=f"When you are using Reverso you need to specify the language are coming from. For example `!ts-reverso en pt Got it!`", inline=False)
+    help_msg.add_field(name=f"If you want to view all supported languages by each service", value=f"`!ts-help-google\n!ts-help-bing\n!ts-help-itranslate\n!ts-help-reverso\n!ts-help-deepl`", inline=False)
     help_msg.add_field(name=f"More commands", value=f"`!ts-ping\n!ts-support`", inline=False)
     await ctx.send(embed=help_msg)
 
