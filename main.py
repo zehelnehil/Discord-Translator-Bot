@@ -39,8 +39,6 @@ async def on_message(message):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(f"{ctx.message.author.mention} Command not found. Type `!ts-help` for a list of commands.")
-    elif isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(f"{ctx.message.author.mention} You are missing a required argument. Type `!ts-help` for a list of commands.")
     elif isinstance(error, commands.BadArgument):
         await ctx.send(f"{ctx.message.author.mention} Bad argument. Type `!ts-help` for a list of commands.")
     elif isinstance(error, commands.CheckFailure):
