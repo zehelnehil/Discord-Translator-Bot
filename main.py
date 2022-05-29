@@ -187,7 +187,7 @@ async def translate_reverso(ctx, lang_from, lang_target, *args):
                 await ctx.send(f"Hey {ctx.message.author.mention} you need to provide a phrase to translate. Type `!ts-help` to get more help.")
         elif lang_from == lang_target:
             await ctx.send(user_msg)
-    elif lang_target not in langs.list_of_supported_langs_reverso and lang_from not in langs.list_of_supported_langs_reverso:
+    elif lang_target not in langs.list_of_supported_langs_reverso or lang_from not in langs.list_of_supported_langs_reverso:
         error_msg_reverso = discord.Embed(title=f"Sorry, Reverso don't support {lang_target} or {lang_from} yet.", color=638712)
         error_msg_reverso.add_field(name=f"Bot usage example", value=f"`!ts-reverso en ja Hello`", inline=False)
         error_msg_reverso.add_field(name=f"List of supported languages by Reverso. Type `!ts-help` to get more help", value=langs.list_of_supported_langs_reverso, inline=False)
