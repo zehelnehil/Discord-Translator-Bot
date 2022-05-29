@@ -131,7 +131,7 @@ async def translate_bing(ctx, lang_target, *args):
     elif lang_target not in langs.list_of_supported_langs_bing:
         error_msg_bing = discord.Embed(title=f"Sorry, Bing don't support {lang_target} yet.", color=638712)
         error_msg_bing.add_field(name=f"Bot usage example", value=f"`!ts-bing ja Hello`", inline=False)
-        error_msg_bing.add_field(name=f"List of supported languages by BingType `!ts-help` to get more help", value=langs.list_of_supported_langs_bing, inline=False)
+        error_msg_bing.add_field(name=f"List of supported languages by Bing. Type `!ts-help` to get more help", value=langs.list_of_supported_langs_bing, inline=False)
         await ctx.send(embed=error_msg_bing)
 
 
