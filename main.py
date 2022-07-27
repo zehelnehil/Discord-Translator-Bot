@@ -63,7 +63,7 @@ async def translate_google(ctx, lang_target, *args):
             try:
                 translated_msg = translator.google(user_msg, to_language=lang_target)
                 await ctx.send(translated_msg)
-                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, using: Google {user_msg}")
+                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, using: Google {user_msg} Translated to: {translated_msg}")
             except Exception as error:
                 await ctx.send(f"Hey {ctx.message.author.mention} slow down a bit, Google is not too fast or they are offline for now. Try again later or type `!ts-help` to see more translate services available.")
                 print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Google {lang_target}, user args: {user_msg}\nError: {error}")
@@ -92,7 +92,7 @@ async def translate_deepl(ctx, lang_target, *args):
             try:
                 translated_msg = translator.deepl(user_msg, to_language=lang_target)
                 await ctx.send(translated_msg)
-                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Deepl {user_msg}")
+                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Deepl {user_msg} Translated to: {translated_msg}")
             except Exception as error:
                 await ctx.send(f"Hey {ctx.message.author.mention} slow down a bit, Deepl is not too fast or they are offline for now. Try again later or type `!ts-help` to see more translate services available.")
                 print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Deepl {lang_target}, user args: {user_msg}\nError: {error}")
@@ -103,6 +103,7 @@ async def translate_deepl(ctx, lang_target, *args):
         error_msg_deepl.add_field(name=f"Bot usage example", value=f"`!ts-deepl ja Hello`", inline=False)
         error_msg_deepl.add_field(name=f"List of supported languages by Deepl. Type `!ts-help` to get more help", value=langs.list_of_supported_langs_deepl, inline=False)
         await ctx.send(embed=error_msg_deepl)
+        print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: DeepL {lang_target}, user args: {user_msg}\nError: {error}")
 
 
 @translate_deepl.error
@@ -120,7 +121,7 @@ async def translate_bing(ctx, lang_target, *args):
             try:
                 translated_msg = translator.bing(user_msg, to_language=lang_target)
                 await ctx.send(translated_msg)
-                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Bing {user_msg}")
+                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Bing {user_msg} Translated to: {translated_msg}")
             except Exception as error:
                 await ctx.send(f"Hey {ctx.message.author.mention} slow down a bit, Bing is not too fast or they are offline for now. Try again later or type `!ts-help` to see more translate services available.")
                 print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Bing {lang_target}, user args: {user_msg}\nError: {error}")
@@ -131,6 +132,7 @@ async def translate_bing(ctx, lang_target, *args):
         error_msg_bing.add_field(name=f"Bot usage example", value=f"`!ts-bing ja Hello`", inline=False)
         error_msg_bing.add_field(name=f"List of supported languages by Bing. Type `!ts-help` to get more help", value=langs.list_of_supported_langs_bing, inline=False)
         await ctx.send(embed=error_msg_bing)
+        print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Bing {lang_target}, user args: {user_msg}\nError: {error}")
 
 
 @translate_bing.error
@@ -148,7 +150,7 @@ async def translate_itranslate(ctx, lang_target, *args):
             try:
                 translated_msg = translator.itranslate(user_msg, to_language=lang_target)
                 await ctx.send(translated_msg)
-                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Itranslate {user_msg}")
+                print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Itranslate {user_msg} Translated to: {translated_msg}")
             except Exception as error:
                 await ctx.send(f"Hey {ctx.message.author.mention} slow down a bit, Itranslate is not too fast or they are offline for now. Try again later or type `!ts-help` to see more translate services available.")
                 print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Itranslate {lang_target}, user args: {user_msg}\nError: {error}")
@@ -159,6 +161,7 @@ async def translate_itranslate(ctx, lang_target, *args):
         error_msg_itranslate.add_field(name=f"Bot usage example", value=f"`!ts-itranslate ja Hello`", inline=False)
         error_msg_itranslate.add_field(name=f"List of supported languages by Itranslate. Type `!ts-help` to get more help", value=langs.list_of_supported_langs_itranslate, inline=False)
         await ctx.send(embed=error_msg_itranslate)
+        print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Itranslate {lang_target}, user args: {user_msg}\nError: {error}")
 
 
 @translate_itranslate.error
@@ -177,7 +180,7 @@ async def translate_reverso(ctx, lang_from, lang_target, *args):
                 try:
                     translated_msg = translator.reverso(user_msg, to_language=lang_target, from_language=lang_from)
                     await ctx.send(translated_msg)
-                    print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Reverso {user_msg}")           
+                    print(f"New request from: {ctx.message.author}, id: {ctx.message.author.id}, usign: Reverso {user_msg} Translated to: {translated_msg}")           
                 except Exception as error:
                     await ctx.send(f"Hey {ctx.message.author.mention} slow down a bit, Reverso is not too fast. Try again later or type `!ts-help` to see more translate services available.")
                     print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Reverso {lang_target}, user args: {user_msg}\nError: {error}")
@@ -190,6 +193,7 @@ async def translate_reverso(ctx, lang_from, lang_target, *args):
         error_msg_reverso.add_field(name=f"Bot usage example", value=f"`!ts-reverso en ja Hello`", inline=False)
         error_msg_reverso.add_field(name=f"List of supported languages by Reverso. Type `!ts-help` to get more help", value=langs.list_of_supported_langs_reverso, inline=False)
         await ctx.send(embed=error_msg_reverso)
+        print(f"New request returned error from: {ctx.message.author}, id: {ctx.message.author.id}, lang target: Reverso {lang_target}, user args: {user_msg}\nError: {error}")
 
 
 @translate_reverso.error
@@ -208,7 +212,7 @@ async def ping(ctx):
 @client.command(aliases=['ts-support'])
 @commands.cooldown(1, 2, commands.BucketType.user)
 async def translate_support(ctx):
-    await ctx.send(f"Talk with my creator <@757738778633961592>")
+    await ctx.send(f"Talk with my creator 𝘽𝙡𝙪#6461")
 
 
 @client.command(aliases=['ts-help-google'])
@@ -264,6 +268,7 @@ async def translate_help(ctx):
     help_msg.add_field(name=f"Bot usage examples", value=f"`!ts ja Hello\n!ts-deepl en Ciao\n!ts-bing pt Bonjour\n!ts-itranslate fr-CA Hi\n!ts-reverso pt pl Olá`", inline=False)
     help_msg.add_field(name=f"If you want to view all supported languages by each service", value=f"`!ts-help-google\n!ts-help-bing\n!ts-help-itranslate\n!ts-help-reverso\n!ts-help-deepl`", inline=False)
     help_msg.add_field(name=f"More commands", value=f"`!ts-ping\n!ts-support`", inline=False)
+    help_msg.add_field(name=f"Tips", value=f"Google supports very long messages")
     await ctx.send(embed=help_msg)
 
 
